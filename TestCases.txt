@@ -1,0 +1,94 @@
+Page  - test case description
+
+1) My Money Page - make pie chart piece dissappear when you click on the corresponding
+	color on key
+	check to see if it disappeared
+	make it reappear again
+	check to see if it reappeared
+
+//tspan[contains(text(), '')[2]
+
+2) Login Page Valid login (able to login with configured username and password)
+	with valid and invalid 
+	can use key actions using tab to go from one field to next
+
+3) Account Summary (Home page) - validate the name of user that appears on top right hand corner
+
+4) Pay Bills - Click on PaySaved Payee
+		select 'Sprint' from Payee dropdown
+		select 'Credit Card" for Account dropdown
+		Enter amount of money for the Amount text input
+		enter current date OR default date from Calendar
+		Enter something for description
+		Click on pay button
+		check for payment successful message
+
+5) Account Summary (Home Page) - click on 'Download WebInspect' 
+	navigate to the "https://software.microfocus.com/en-us/products/webinspect-dynamic-analysis-dast/overview"
+	navigate back to HomePage check to see if driver has taken back to homepage url
+
+6) Account Summary (Home Page) - click on help under settings drop down
+	check to see if we are navigated to the help page
+	by using driver.getTitle()
+
+7) Account Summary (Home Page) - search for'help' or anything else in search box
+	validate the page title using driver.title() (inspect page source)
+
+8) My Money Page - hover over pie chart piece
+	check to see if pie pieces pop out
+	right click
+	double click
+	expand and collapse
+	hover
+	
+
+9) My Money Page - collapse and uncollapse the multiple arrow thing for Inflow thing
+
+10) My Money Page - click on small circle with i 
+	new small window will open
+	close the small window
+	check to see if this works 
+	current window will be the new small window
+	after closing check to see if the current window points to the My Money Map Page
+
+11) Transfer Fund
+	select from account
+	select to account	
+	amount
+	description
+	continue
+
+12) Drag and drop 'Zero Bank' logo/anchor tag to the search bar
+	link should appear in the search bar
+
+13) Pay Bills - Add new payee tab
+	enter payee name, enter payee address, enter payee account and enter payee details
+	click add button
+
+14) Pay Bills - click on 'purchase foreign currency'
+	enter currency enter amount check us currency radio button
+	click on calculate costs
+		check for the correct calculation/conversion
+	click purchase 
+	check for success message
+	
+
+15) Acount Summary - type something in search bar and use sendkeys(F5) to clear the search bar
+
+16) My Money Page - check to see if calculations are correct on left of pie chart
+
+17) Pay Bills- add new payee->change size of payee address box(drag and drop)
+
+
+add utility
+
+
+2 test cases for db
+log out
+
+WebElement list utility
+	have list of WebElements (a tags) 
+	
+
+
+
