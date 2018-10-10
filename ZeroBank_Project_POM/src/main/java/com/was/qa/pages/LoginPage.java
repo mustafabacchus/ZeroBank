@@ -23,7 +23,7 @@ public class LoginPage extends TestBase{
 	WebElement remCheckBox;
 	
 	//sign in button
-	@FindBy(name="user_remember_me")
+	@FindBy(name="submit")
 	WebElement signInBtn;
 
 	//constructor

@@ -23,14 +23,13 @@ public class TestBase {
 	
 	//constructor
 	public TestBase() {
-		//instantiate instance of Actions class
-		act = new Actions(driver);
+
 		
 		//instantiate instance of Properties class
 		prop = new Properties();
 		try {
 			FileInputStream ip = new FileInputStream(System.getProperty("user.dir")+
-					"src\\main\\java\\com\\was\\qa\\config\\config.properties");
+					"\\src\\main\\java\\com\\was\\qa\\config\\config.properties");
 			//read property list from input stream (that contains config values??) 
 			//(Property class contains list of properties i.e. value from .properties file)
 			prop.load(ip);
@@ -54,6 +53,9 @@ public class TestBase {
 			System.setProperty("webdriver.ie.driver", "C:\\SeleniumBrowserDrivers\\IEDriverServer.exe");
 			driver = new InternetExplorerDriver();					
 		}
+		
+		//instantiate instance of Actions class
+		act = new Actions(driver);
 		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
