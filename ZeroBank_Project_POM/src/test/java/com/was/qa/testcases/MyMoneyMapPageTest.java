@@ -33,8 +33,10 @@ public class MyMoneyMapPageTest extends TestBase{
 	public void test1() throws InterruptedException {
 		
 //		myMoneyMapPage.pieChartVisibility();
-//		myMoneyMapPage.hoverPie();
-		myMoneyMapPage.checkAlphaAscDesc("DESC");
+//		myMoneyMapPage.checkDoubleAscDesc("DESC");
+//		myMoneyMapPage.checkAlphaAscDesc("DESC");
+		myMoneyMapPage.findPieSlicesAndHover();
+		
 		
 	}
 	

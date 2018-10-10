@@ -16,34 +16,6 @@ import com.was.qa.base.TestBase;
 public class MyMoneyMapPage extends TestBase{
 	
 	//LOCATORS
-	
-	//--------------------------------------------------------------------------
-	//Pie Chart Positions
-	//--------------------------------------------------------------------------
-////	@FindBy(xpath="//*[@id=\"ext-sprite-1271\"]/tspan")
-////	WebElement slice1;
-//	@FindBy(id="ext-sprite-1271")
-//	WebElement slice1;	
-//	
-//	@FindBy(xpath="//*[@id=\"ext-sprite-1272\"]/tspan")
-//	WebElement slice2;
-//	@FindBy(xpath="//*[@id=\"ext-sprite-1273\"]/tspan")
-//	WebElement slice3;
-//	@FindBy(xpath="//*[@id=\"ext-sprite-1274\"]/tspan")
-//	WebElement slice4;
-//	@FindBy(xpath="//*[@id=\"ext-sprite-1275\"]/tspan")
-//	WebElement slice5;
-//	@FindBy(xpath="//*[@id=\"ext-sprite-1276\"]/tspan")
-//	WebElement slice6;
-//	@FindBy(xpath="//*[@id=\"ext-sprite-1277\"]/tspan")
-//	WebElement slice7;
-//	@FindBy(xpath="//*[@id=\"ext-sprite-1278\"]/tspan")
-//	WebElement slice8;
-//	@FindBy(xpath="//*[@id=\"ext-sprite-1279\"]/tspan")
-//	WebElement slice9;
-//	@FindBy(xpath="//*[@id=\"ext-sprite-1280\"]/tspan")
-//	WebElement slice10;
-	//--------------------------------------------------------------------------
 
 	
 	//Auto
@@ -170,19 +142,24 @@ public class MyMoneyMapPage extends TestBase{
 	
 	//actions
 	
-	public WebElement[] findPieSlices() {//replaces pie chart positions if it works
+	public String[] findPieSlicesAndHover() throws InterruptedException {//Works
 		WebElement[] slicesArr = new WebElement[10];
+		String[] slicesArrText = new String[10];
 		int sliceId = 1271;
 		for(int i=0; i<9; i++) {
-			slicesArr[i] = driver.findElement(By.xpath("//*[@id=\"ext-sprite-" + sliceId + "\"]/tspan"));
+			slicesArr[i] = driver.findElement(By.id("ext-sprite-" + sliceId));
+			act.moveToElement(slicesArr[i]).build().perform();
+			Thread.sleep(3000);
+			slicesArrText[i] = slicesArr[i].getText();
+			System.out.println(slicesArrText[i]);
 			sliceId++;
 		}
-		return slicesArr;
+		return slicesArrText;
 	}
 	
 
 	
-	public boolean checkAlphaAscDesc(String order) {//Can be 'ASC' or 'DESC'
+	public boolean checkAlphaAscDesc(String order) {//Can be 'ASC' or 'DESC' //Works
 		String[] arr = new String[10];
 		arr[0] = subjectSpendingsRow1Col1.getText();
 		arr[1] = subjectSpendingsRow2Col1.getText();
@@ -228,26 +205,30 @@ public class MyMoneyMapPage extends TestBase{
 		return alphaOrdered;
 	}
 	
-	public void checkDoubleAscDesc(String order) {//Can be 'ASC' or 'DESC'
+	public void checkDoubleAscDesc(String order) {//Can be 'ASC' or 'DESC' //Works
 		String[] arr = new String[10];
 		
-		arr[0] = subjectSpendingsRow1Col2.getText().replaceAll("$", "");
-		arr[1] = subjectSpendingsRow2Col2.getText().replaceAll("$", "");
-		arr[2] = subjectSpendingsRow3Col2.getText().replaceAll("$", "");
-		arr[3] = subjectSpendingsRow4Col2.getText().replaceAll("$", "");
-		arr[4] = subjectSpendingsRow5Col2.getText().replaceAll("$", "");
-		arr[5] = subjectSpendingsRow6Col2.getText().replaceAll("$", "");
-		arr[6] = subjectSpendingsRow7Col2.getText().replaceAll("$", "");
-		arr[7] = subjectSpendingsRow8Col2.getText().replaceAll("$", "");
-		arr[8] = subjectSpendingsRow9Col2.getText().replaceAll("$", "");
-		arr[9] = subjectSpendingsRow10Col2.getText().replaceAll("$", "");
+		arr[0] = subjectSpendingsRow1Col2.getText().substring(1);
+		arr[1] = subjectSpendingsRow2Col2.getText().substring(1);
+		arr[2] = subjectSpendingsRow3Col2.getText().substring(1);
+		arr[3] = subjectSpendingsRow4Col2.getText().substring(1);
+		arr[4] = subjectSpendingsRow5Col2.getText().substring(1);
+		arr[5] = subjectSpendingsRow6Col2.getText().substring(1);
+		arr[6] = subjectSpendingsRow7Col2.getText().substring(1);
+		arr[7] = subjectSpendingsRow8Col2.getText().substring(1);
+		arr[8] = subjectSpendingsRow9Col2.getText().substring(1);
+		arr[9] = subjectSpendingsRow10Col2.getText().substring(1);
 		
-		boolean alphaOrdered = true;
+		for(int i=0; i<arr.length; i++) {
+			System.out.println(arr[i]);
+		}
+		
+		boolean numericOrdered = true;
 		
 		if(order.equals("ASC")) {
 			for(int i=1; i<arr.length; i++) {
 				if(Double.parseDouble(arr[i]) > Double.parseDouble(arr[i - 1])) {
-					alphaOrdered = false;
+					numericOrdered = false;
 					break;
 				}
 			}
@@ -255,12 +236,19 @@ public class MyMoneyMapPage extends TestBase{
 		if(order.equals("DESC")) {
 			for(int i=1; i<arr.length; i++) {
 				if(Double.parseDouble(arr[i]) < Double.parseDouble(arr[i - 1])) {
-					alphaOrdered = false;
+					numericOrdered = false;
 					break;
 				}
 			}
 		}
-		Assert.assertTrue(alphaOrdered);
+//		Assert.assertTrue(alphaOrdered);
+		if(numericOrdered) {
+			System.out.println("Sorted Correctly");
+		}
+		else {
+			System.out.println("Sorted Incorrectly");
+		}
+		
 	}
 	
 	public void sameLegendAndLabel() {
