@@ -31,7 +31,10 @@ public class LoginPageTest extends TestBase{
 		Assert.assertEquals(title, "Zero - Log in");
 	}
 	
-	//ADD MORE TESTS HERE!
+	@Test(priority=2)
+	public void loginTest() {
+		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+	}
 	
 	@AfterTest
 	public void cleanUp() {

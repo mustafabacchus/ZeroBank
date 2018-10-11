@@ -9,6 +9,11 @@ import com.was.qa.base.TestBase;
 public class HomePage extends TestBase{
 	//add some locators here!
 	
+	//download web inspect link
+	@FindBy(id="download_webinspect_link")
+	WebElement dWebInspecLink;
+	//use switch to for using another tab
+	
 	//constructor
 	public HomePage() {
 		//Initializing the Page Objects
