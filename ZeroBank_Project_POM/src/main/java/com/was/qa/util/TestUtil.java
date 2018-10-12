@@ -1,7 +1,5 @@
 package com.was.qa.util;
 
-import static org.testng.Assert.assertNotNull;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -33,7 +31,7 @@ public class TestUtil extends TestBase{
 		//Connect to database
 		try {
 			conn = DriverManager
-					.getConnection("jdbc:mysql://db4free.net:3306/gts_db01", "gts_test01", "11@one@11");
+					.getConnection("jdbc:mysql://db4free.net:3306/gts_db01", "gts_test01", prop.getProperty("dbpass"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

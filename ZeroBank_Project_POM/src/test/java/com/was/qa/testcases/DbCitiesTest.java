@@ -85,12 +85,14 @@ public class DbCitiesTest extends TestBase {
 		
 		//Compare actual vs. expected
 		String failed = "";
-		for (int i = 0; i < actual.size(); i++) {
-			String a = actual.get(i);
-			String e = expected.get(i);
-			//Store specfic mismatched values
-			if (!a.equals(e)) {
-				failed += a + "\n" + e + "\n\n";
+		if (actual.size() == expected.size()) {
+			for (int i = 0; i < actual.size(); i++) {
+				String a = actual.get(i);
+				String e = expected.get(i);
+				//Store specfic mismatched values
+				if (!a.equals(e)) {
+					failed += a + "\n" + e + "\n\n";
+				}
 			}
 		}
 		
