@@ -7,5 +7,4 @@ public class OnlineStatementsPage extends TestBase {
 		super();
 	}
 	
-	//finish
 }

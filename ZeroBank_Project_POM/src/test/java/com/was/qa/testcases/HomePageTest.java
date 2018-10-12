@@ -48,6 +48,7 @@ public class HomePageTest extends TestBase {
 		Thread.sleep(3000);
 		WebElement srchBar= homePage.getSearchBar();
 		act.sendKeys(srchBar , Keys.F5);
+		driver.get(driver.getCurrentUrl());
 		Thread.sleep(6000);
 		String sbstr = srchBar.getText();
 		//search bar must contain no text after F5 is pressed
