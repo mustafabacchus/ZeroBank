@@ -6,4 +6,6 @@ public class OnlineStatementsPage extends TestBase {
 	public OnlineStatementsPage() {
 		super();
 	}
+	
+	//finish
 }
