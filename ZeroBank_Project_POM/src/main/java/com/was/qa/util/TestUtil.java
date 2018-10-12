@@ -12,10 +12,6 @@ import com.was.qa.base.TestBase;
 
 public class TestUtil extends TestBase{
 	
-	public TestUtil() {
-		super();
-	}
-	
 	public static long PAGE_LOAD_TIMEOUT = 30;
 	public static long IMPLICIT_WAIT = 30;
 	
@@ -37,18 +33,19 @@ public class TestUtil extends TestBase{
 		//Connect to database
 		try {
 			conn = DriverManager
-					.getConnection("jdbc:mysql://db4free.net:3306/gts_db01", prop.getProperty("dbuser"), "11@one@11");
+					.getConnection("jdbc:mysql://db4free.net:3306/gts_db01", "gts_test01", "11@one@11");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println("Connection successful.");
+		System.out.println("Connection established.");
 	}
 	
+	//Close database connection
 	public static void terminateDbConnection() throws SQLException {
 		if (conn != null){
 			try {
 				conn.close();
-				System.out.println("Connection closed.");
+				System.out.println("Connection terminated.");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
