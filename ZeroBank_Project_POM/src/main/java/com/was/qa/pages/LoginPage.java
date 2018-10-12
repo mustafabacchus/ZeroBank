@@ -18,7 +18,7 @@ public class LoginPage extends TestBase{
 	@FindBy(id="user_password")
 	WebElement pwdBox;
 	
-	//keep me signed in checkbox
+	//keep me signed in check box
 	@FindBy(id="user_remember_me")
 	WebElement remCheckBox;
 	
@@ -33,7 +33,7 @@ public class LoginPage extends TestBase{
 	}
 	
 	//actions
-	public String validateLoginPageTitle() { //can view title via inspect element
+	public String validateLoginPageTitle() { 
 		return driver.getTitle();
 	}
 	
@@ -43,10 +43,7 @@ public class LoginPage extends TestBase{
 		pwdBox.clear();
 		pwdBox.sendKeys(pwd);
 		signInBtn.click();
-//		JavascriptExecutor js = (JavascriptExecutor)driver;
-//		js.executeScript("arguments[0].click();", signInBtn);	
-		
-		//user is navigated to homepage after successful  login
+		//user is navigated to home page after login
 		return new HomePage();
 	}
 	

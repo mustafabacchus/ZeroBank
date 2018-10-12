@@ -35,10 +35,15 @@ public class MainPage extends TestBase {
 		return logoLink.isDisplayed();
 	}
 	
-	public LoginPage navigateToLoginPage() {
-		act.click(loginLinkBtn); //use of Actions class 
-//		loginLinkBtn.click();
+	public LoginPage navigateToLoginPage() throws InterruptedException {
+//		act.click(loginLinkBtn);
+		clickSignIn();
+		Thread.sleep(3000);
 		return new LoginPage();
+	}
+	
+	public void clickSignIn() {
+		loginLinkBtn.click();
 	}
 	
 }
