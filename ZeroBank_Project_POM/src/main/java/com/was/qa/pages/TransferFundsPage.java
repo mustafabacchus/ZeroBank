@@ -1,5 +1,7 @@
 package com.was.qa.pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -31,14 +33,14 @@ public class TransferFundsPage extends TestBase {
 	
 	//submit button
 	@FindBy(id="btn_submit")
-	WebElement submitBtn;
+	WebElement continueBtn;
 	
-	
+	/*
 	public TransferFundsPage() {
 		super();
 	}
-	
-	public void setUp() throws InterruptedException {
+	*/
+	public void setUp(WebDriver driver) throws InterruptedException {
 		PageFactory.initElements(driver, this);		
 	}
 	
@@ -47,29 +49,35 @@ public class TransferFundsPage extends TestBase {
 	}
 	
 	public void selectFromAccount(int value) {
-		new Select(fromActDropDown).selectByIndex(value);
+		new Select(fromActDropDown).selectByValue(Integer.toString(value));
 	}
 	
-	public void selectToAccoutn(int value) {
-		new Select(toActDropDown).selectByIndex(value);
+	public void selectToAccount(int value) {
+		new Select(toActDropDown).selectByValue(Integer.toString(value));
 	}
 
-	public void enterAmount(String value) {
+	public void enterAmount(long value) {
 		amtField.clear();
-		amtField.sendKeys(value);
+		amtField.sendKeys(Long.toString(value));
 	}
 	
 	public void enterDescription(String value) {
+		//WebElement descriptField = driver.findElement(By.id("tf_description"));
 		descriptField.clear();
 		descriptField.sendKeys(value);
 	}
 	
-	public void clickSubmit() {
-		submitBtn.click();
+	public void clickContinue() {
+		continueBtn.click();
 	}
 	
-	public boolean validateTransfer(int to, int from) {
-		return false;//remove later
+	public void validateTransfer(int from, int to, long amount, String description) {
+		selectFromAccount(from);
+		selectToAccount(to);
+		enterAmount(amount);
+		enterDescription(description);
+		clickContinue();
+		//return false;
 	}
 
 }
