@@ -21,6 +21,18 @@ public class TransferFundsPage extends TestBase {
 	@FindBy(id="tf_toAccountId")
 	WebElement toActDropDown;
 	
+	//amount field
+	@FindBy(id="tf_amount")
+	WebElement amtField;
+	
+	//description field
+	@FindBy(id="tf_description")
+	WebElement descriptField;
+	
+	//submit button
+	@FindBy(id="btn_submit")
+	WebElement submitBtn;
+	
 	
 	public TransferFundsPage() {
 		super();
@@ -30,23 +42,34 @@ public class TransferFundsPage extends TestBase {
 		PageFactory.initElements(driver, this);		
 	}
 	
-	
-	
 	public String validateTransferFundsPage() {
 		return driver.getTitle();
 	}
 	
-	public boolean validateTransfer(Select d1, Select d2) {
+	public void selectFromAccount(int value) {
+		new Select(fromActDropDown).selectByIndex(value);
+	}
+	
+	public void selectToAccoutn(int value) {
+		new Select(toActDropDown).selectByIndex(value);
+	}
+
+	public void enterAmount(String value) {
+		amtField.clear();
+		amtField.sendKeys(value);
+	}
+	
+	public void enterDescription(String value) {
+		descriptField.clear();
+		descriptField.sendKeys(value);
+	}
+	
+	public void clickSubmit() {
+		submitBtn.click();
+	}
+	
+	public boolean validateTransfer(int to, int from) {
 		return false;//remove later
 	}
-
-	//---------------------getters--------------------------------
-	public WebElement getTransferFromAccount() {
-		return fromActDropDown;
-	}
-
-	public WebElement getTransferToAccount() {
-		return toActDropDown;
-	}	
 
 }
