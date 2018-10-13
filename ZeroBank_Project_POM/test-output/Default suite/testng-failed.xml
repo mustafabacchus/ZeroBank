@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.was.qa.testcases.HomePageTest">
+      <class name="com.was.qa.testcases.MyMoneyMapPageTest">
         <methods>
-          <include name="cleanUp"/>
+          <include name="test1"/>
           <include name="setUp"/>
-          <include name="validateUserTest"/>
+          <include name="cleanUp"/>
         </methods>
-      </class> <!-- com.was.qa.testcases.HomePageTest -->
+      </class> <!-- com.was.qa.testcases.MyMoneyMapPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -4,8 +4,10 @@ import org.testng.Assert;
 
 
 import java.text.NumberFormat;
+import java.util.Arrays;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -16,7 +18,6 @@ import com.was.qa.base.TestBase;
 public class MyMoneyMapPage extends TestBase{
 	
 	//LOCATORS
-
 	
 	//Auto
 	@FindBy(xpath="//tspan[contains(text(),'Auto')][1]")
@@ -73,64 +74,10 @@ public class MyMoneyMapPage extends TestBase{
 	WebElement telecomToggle;
 	
 	//Transportation
-	@FindBy(xpath="//tspan[contains(text(),'Transportation')][1]")
-	WebElement transportationLabel;
-	@FindBy(xpath = "//tspan[contains(text(),'Transportation')][2]")
-	WebElement transportationToggle;
-	
-	
-	//--------------------------------------------------------------------------
-	//Subject: Spendings First Col (Category Names)
-	//--------------------------------------------------------------------------
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[2]/td[1]/div")
-	WebElement subjectSpendingsRow1Col1;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[3]/td[1]/div")
-	WebElement subjectSpendingsRow2Col1;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[4]/td[1]/div")
-	WebElement subjectSpendingsRow3Col1;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[5]/td[1]/div")
-	WebElement subjectSpendingsRow4Col1;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[6]/td[1]/div")
-	WebElement subjectSpendingsRow5Col1;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[7]/td[1]/div")
-	WebElement subjectSpendingsRow6Col1;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[8]/td[1]/div")
-	WebElement subjectSpendingsRow7Col1;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[9]/td[1]/div")
-	WebElement subjectSpendingsRow8Col1;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[10]/td[1]/div")
-	WebElement subjectSpendingsRow9Col1;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[11]/td[1]/div")
-	WebElement subjectSpendingsRow10Col1;
-	//--------------------------------------------------------------------------
-	
-	//--------------------------------------------------------------------------
-	//Subject: Spendings Second Col (Money Value Per Category)
-	//--------------------------------------------------------------------------
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[2]/td[2]/div")
-	WebElement subjectSpendingsRow1Col2;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[3]/td[2]/div")
-	WebElement subjectSpendingsRow2Col2;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[4]/td[2]/div")
-	WebElement subjectSpendingsRow3Col2;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[5]/td[2]/div")
-	WebElement subjectSpendingsRow4Col2;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[6]/td[2]/div")
-	WebElement subjectSpendingsRow5Col2;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[7]/td[2]/div")
-	WebElement subjectSpendingsRow6Col2;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[8]/td[2]/div")
-	WebElement subjectSpendingsRow7Col2;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[9]/td[2]/div")
-	WebElement subjectSpendingsRow8Col2;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[10]/td[2]/div")
-	WebElement subjectSpendingsRow9Col2;
-	@FindBy(xpath = "//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[11]/td[2]/div")
-	WebElement subjectSpendingsRow10Col2;
-	//--------------------------------------------------------------------------
-	
-	
-
+//	@FindBy(xpath="//tspan[contains(text(),'Transportation')][1]")
+//	WebElement transportationLabel;
+//	@FindBy(xpath = "")
+//	WebElement transportationToggle;
 	
 	public MyMoneyMapPage() {
 		PageFactory.initElements(driver, this);		
@@ -142,40 +89,55 @@ public class MyMoneyMapPage extends TestBase{
 	
 	//actions
 	
-	public String[] findPieSlicesAndHover() throws InterruptedException {//Works
-		WebElement[] slicesArr = new WebElement[10];
+	public String[] getPieSlicesText() {
 		String[] slicesArrText = new String[10];
 		int sliceId = 1271;
-		for(int i=0; i<9; i++) {
-			slicesArr[i] = driver.findElement(By.id("ext-sprite-" + sliceId));
-			act.moveToElement(slicesArr[i]).build().perform();
-			Thread.sleep(3000);
-			slicesArrText[i] = slicesArr[i].getText();
-			System.out.println(slicesArrText[i]);
+		for(int i=0; i<10; i++) {
+			slicesArrText[i] = driver.findElement(By.id("ext-sprite-" + sliceId)).getText();
 			sliceId++;
 		}
 		return slicesArrText;
 	}
 	
-
-	
-	public boolean checkAlphaAscDesc(String order) {//Can be 'ASC' or 'DESC' //Works
-		String[] arr = new String[10];
-		arr[0] = subjectSpendingsRow1Col1.getText();
-		arr[1] = subjectSpendingsRow2Col1.getText();
-		arr[2] = subjectSpendingsRow3Col1.getText();
-		arr[3] = subjectSpendingsRow4Col1.getText();
-		arr[4] = subjectSpendingsRow5Col1.getText();
-		arr[5] = subjectSpendingsRow6Col1.getText();
-		arr[6] = subjectSpendingsRow7Col1.getText();
-		arr[7] = subjectSpendingsRow8Col1.getText();
-		arr[8] = subjectSpendingsRow9Col1.getText();
-		arr[9] = subjectSpendingsRow10Col1.getText();
-		
-		for(int i=0; i<arr.length; i++) {
-			System.out.println(arr[i]);
+	public void pieHover() throws InterruptedException {
+		int sliceId = 1271;
+		for(int i=0; i<10; i++) {
+			WebElement slice = driver.findElement(By.id("ext-sprite-" + sliceId));
+			act.moveToElement(slice).build().perform();
+			Thread.sleep(100);
+			System.out.println(slice);
+			sliceId++;
 		}
+	}
+	
+	public String[] findCategoryNames() {
+		String[] textArr = new String[10];
+		int id = 2;
+		for(int i=0; i<10; i++) {
+			textArr[i] = driver.findElement(By.xpath("//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[" + id + "]/td[1]/div")).getText();
+			id++;
+		}
+		return textArr;
 		
+	}
+	
+	public String[] findMoneyValues() {
+		String[] textArr = new String[10];
+		int id = 2;
+		for(int i=0; i<10; i++) {
+			textArr[i] = driver.findElement(By.xpath("//*[@id=\"gridview-1021-bd-Spendings\"]/td/table/tbody/tr[" + id + "]/td[2]/div")).getText().substring(1);
+			id++;
+		}
+		return textArr;
+	}
+	
+	
+	public boolean checkAlphaAscDesc(String[] arr, String order) {//Can be 'ASC' or 'DESC' //Works
+		
+		//comment out later
+		for(int i=0; i<arr.length; i++) 
+			System.out.println(arr[i]);
+
 		boolean alphaOrdered = true;
 		
 		if(order.equals("ASC")) {
@@ -194,46 +156,18 @@ public class MyMoneyMapPage extends TestBase{
 				}
 			}
 		}
-		
-		if(alphaOrdered) {
-			System.out.println("Sorted Correctly");
-		}
-		else {
-			System.out.println("Sorted Incorrectly");
-		}
-		
 		return alphaOrdered;
 	}
-	
-	public void checkDoubleAscDesc(String order) {//Can be 'ASC' or 'DESC' //Works
-		String[] arr = new String[10];
+
+	public boolean checkDoubleAscDesc(String[] arr, String order) {//Can be 'ASC' or 'DESC' //Works
 		
-		arr[0] = subjectSpendingsRow1Col2.getText().substring(1);
-		arr[1] = subjectSpendingsRow2Col2.getText().substring(1);
-		arr[2] = subjectSpendingsRow3Col2.getText().substring(1);
-		arr[3] = subjectSpendingsRow4Col2.getText().substring(1);
-		arr[4] = subjectSpendingsRow5Col2.getText().substring(1);
-		arr[5] = subjectSpendingsRow6Col2.getText().substring(1);
-		arr[6] = subjectSpendingsRow7Col2.getText().substring(1);
-		arr[7] = subjectSpendingsRow8Col2.getText().substring(1);
-		arr[8] = subjectSpendingsRow9Col2.getText().substring(1);
-		arr[9] = subjectSpendingsRow10Col2.getText().substring(1);
-		
-		for(int i=0; i<arr.length; i++) {
+		//Comment out later
+		for(int i=0; i<arr.length; i++) 
 			System.out.println(arr[i]);
-		}
 		
 		boolean numericOrdered = true;
 		
 		if(order.equals("ASC")) {
-			for(int i=1; i<arr.length; i++) {
-				if(Double.parseDouble(arr[i]) > Double.parseDouble(arr[i - 1])) {
-					numericOrdered = false;
-					break;
-				}
-			}
-		}
-		if(order.equals("DESC")) {
 			for(int i=1; i<arr.length; i++) {
 				if(Double.parseDouble(arr[i]) < Double.parseDouble(arr[i - 1])) {
 					numericOrdered = false;
@@ -241,59 +175,80 @@ public class MyMoneyMapPage extends TestBase{
 				}
 			}
 		}
-//		Assert.assertTrue(alphaOrdered);
-		if(numericOrdered) {
-			System.out.println("Sorted Correctly");
+		if(order.equals("DESC")) {
+			for(int i=1; i<arr.length; i++) {
+				if(Double.parseDouble(arr[i]) > Double.parseDouble(arr[i - 1])) {
+					numericOrdered = false;
+					break;
+				}
+			}
 		}
-		else {
-			System.out.println("Sorted Incorrectly");
-		}
-		
+		return numericOrdered;	
 	}
 	
-	public void sameLegendAndLabel() {
-		Assert.assertEquals(transportationLabel.getText(), transportationToggle.getText());
-		Assert.assertEquals(autoLabel.getText(), autoToggle.getText());
-		Assert.assertEquals(checksWrittenLabel.getText(), checksWrittenToggle.getText());
-		Assert.assertEquals(retailLabel.getText(), retailToggle.getText());
-		Assert.assertEquals(householdLabel.getText(), householdToggle.getText());
-		Assert.assertEquals(insuranceLabel.getText(), insuranceToggle.getText());
-		Assert.assertEquals(officeSupplyLabel.getText(), officeSupplyToggle.getText());
-		Assert.assertEquals(restaurantsLabel.getText(), restaurantsToggle.getText());
-		Assert.assertEquals(telecomLabel.getText(), telecomToggle.getText());
+	public boolean sameColAndLabel(String[] categoryColArr, String[] pieLableArr) {
+		return Arrays.equals(categoryColArr, pieLableArr);
 	}
-	
-//	public void hoverPie() throws InterruptedException{
-//		act.moveToElement(slice1).build().perform();
-//		Thread.sleep(3000);
-//		
-//	}
 	
 
-	public void pieChartVisibility() {
-//		transportationToggle.click();
-//		Assert.assertFalse(transportationLabel.isDisplayed());
-//		autoToggle.click();
-//		Assert.assertFalse(autoLabel.isDisplayed());
-//		checksWrittenToggle.click();
-//		Assert.assertFalse(checksWrittenLabel.isDisplayed());
-//		retailToggle.click();
-//		Assert.assertFalse(retailLabel.isDisplayed());
-//		householdToggle.click();
-//		Assert.assertFalse(householdLabel.isDisplayed());
-//		insuranceToggle.click();
-//		Assert.assertFalse(insuranceLabel.isDisplayed());
-//		officeSupplyToggle.click();
-//		Assert.assertFalse(officeSupplyLabel.isDisplayed());
-//		restaurantsToggle.click();
-//		Assert.assertFalse(restaurantsLabel.isDisplayed());
-//		telecomToggle.click();
-//		Assert.assertFalse(telecomLabel.isDisplayed());
+	public void pieChartVisibility() throws InterruptedException {
 		
 		//Returns PieChart Back to original state for further testing
-		transportationToggle.click();autoToggle.click();checksWrittenToggle.click();
-		retailToggle.click();householdToggle.click();insuranceToggle.click();
-		officeSupplyToggle.click();restaurantsToggle.click();telecomToggle.click();
+//		WebElement mapObject = driver.findElement(By.xpath("//*[name()='svg']/*[name()='rect']"));
+//		((JavascriptExecutor) driver).executeScript("arguments[0].click", mapObject);
+//		mapObject.click();
+//		System.out.println("Clicked the thing.");
+	}
+	
+	public void reverseCategoryOrder() {
+		WebElement reverseCategory = driver.findElement(By.id("gridcolumn-1018-titleEl"));
+		act.click(reverseCategory).build().perform();
+	}
+	
+	public void reverseMoneyOrder() {
+		WebElement reverseMoney = driver.findElement(By.id("gridcolumn-1019-titleEl"));
+		act.click(reverseMoney).build().perform();
+	}
+	
+	public boolean addsUp() {
+		String[] outflow = findMoneyValues();
+		boolean flag = true;
+		
+		//Checks if outflow elements add up to outflow total
+		double outflowSum = 0;
+		for(int i=0; i<outflow.length; i++) 
+			outflowSum = outflowSum + Double.parseDouble(outflow[i]);
+		
+		double outflowTotal= Double.parseDouble(driver.findElement(By.xpath("//*[@id=\"gridview-1021\"]/table/tbody/tr[4]/td[2]/div/b")).getText().substring(1).replaceAll(",", ""));
+		
+		flag = (outflowTotal == outflowSum); if(flag == false) return flag;
+		
+		//Checks if inflow elements add up to inflow total
+		double inflowSum = 0;
+		int id = 2;
+		for(int i=0; i<3; i++) {
+			inflowSum = inflowSum + Double.parseDouble(driver.findElement(By.xpath("//*[@id=\"gridview-1015-bd-Deposits\"]/td/table/tbody/tr[" + id + "]/td[2]/div")).getText().substring(1).replaceAll(",", ""));
+			id++;
+		}
+		
+		double inflowTotal= Double.parseDouble(driver.findElement(By.xpath("//*[@id=\"gridview-1015\"]/table/tbody/tr[4]/td[2]/div/b")).getText().substring(1).replaceAll(",", ""));
+		
+		flag = (inflowTotal == inflowSum); if(flag == false) return flag;
+		
+		//Checks if these are the same as their previous counterparts
+		double summaryTotalInflow = Double.parseDouble(driver.findElement(By.xpath("//*[@id=\"gridview-1031\"]/table/tbody/tr[2]/td[2]/div")).getText().substring(1).replaceAll(",", ""));
+		double summaryTotalOutflow = Double.parseDouble(driver.findElement(By.xpath("//*[@id=\"gridview-1031\"]/table/tbody/tr[3]/td[2]/div")).getText().substring(1).replaceAll(",", ""));
+		
+		flag = (summaryTotalInflow == inflowTotal); if(flag == false) return flag;
+		flag = (summaryTotalOutflow == outflowTotal); if(flag == false) return flag;
+		
+		//Checks if what's left is correct according to everything prior
+		double whatsLeft = Double.parseDouble(driver.findElement(By.xpath("//*[@id=\"gridview-1031\"]/table/tbody/tr[4]/td[2]/div/b")).getText().substring(1).replaceAll(",", ""));
+		
+		flag = ((summaryTotalInflow - summaryTotalOutflow) == whatsLeft);
+		
+		
+		return flag;
 	}
 	
 

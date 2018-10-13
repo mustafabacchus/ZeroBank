@@ -66,6 +66,7 @@ public class HomePageTest extends TestBase {
 		homePage.getSettingsDropDown().click();
 		Thread.sleep(3000);
 		homePage.getHelpLink().click();
+//		Robot r = new Robot();
 //		WebElement help=homePage.getHelpLink();
 //		act.moveToElement(help).contextClick().sendKeys(Keys.ARROW_DOWN).click().build().perform();
 		Thread.sleep(3000);

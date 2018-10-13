@@ -37,6 +37,7 @@ public class TransferFundsPage extends TestBase {
 	}
 	
 	public boolean validateTransfer(Select d1, Select d2) {
+		
 		return false;//remove later
 	}
 
