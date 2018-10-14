@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sat Oct 13 17:17:22 EDT 2018</td>
+<td>Started on:</td><td>Sat Oct 13 20:16:02 EDT 2018</td>
 </tr>
-<tr><td>Total time:</td><td>15 seconds (15578 ms)</td>
+<tr><td>Total time:</td><td>14 seconds (14159 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -77,8 +77,10 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.was.qa.testcases.TransferFundsPageTest.validateTransferTest()'><b>validateTransferTest</b><br>Test class: com.was.qa.testcases.TransferFundsPageTest</td>
 <td><div><pre>java.lang.NullPointerException
-	at com.was.qa.pages.TransferFundsPage.enterDescription(TransferFundsPage.java:67)
-	at com.was.qa.testcases.TransferFundsPageTest.validateTransferTest(TransferFundsPageTest.java:46)
+	at org.openqa.selenium.support.ui.Select.&lt;init&gt;(Select.java:44)
+	at com.was.qa.pages.TransferFundsPage.selectFromAccount(TransferFundsPage.java:49)
+	at com.was.qa.pages.TransferFundsPage.validateTransfer(TransferFundsPage.java:75)
+	at com.was.qa.testcases.TransferFundsPageTest.validateTransferTest(TransferFundsPageTest.java:44)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -103,10 +105,12 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace859690270", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace859690270'><pre>java.lang.NullPointerException
-	at com.was.qa.pages.TransferFundsPage.enterDescription(TransferFundsPage.java:67)
-	at com.was.qa.testcases.TransferFundsPageTest.validateTransferTest(TransferFundsPageTest.java:46)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1033856359", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1033856359'><pre>java.lang.NullPointerException
+	at org.openqa.selenium.support.ui.Select.&lt;init&gt;(Select.java:44)
+	at com.was.qa.pages.TransferFundsPage.selectFromAccount(TransferFundsPage.java:49)
+	at com.was.qa.pages.TransferFundsPage.validateTransfer(TransferFundsPage.java:75)
+	at com.was.qa.testcases.TransferFundsPageTest.validateTransferTest(TransferFundsPageTest.java:44)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -133,7 +137,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>com.was.qa.testcases.TransferFundsPageTest@3532ec19</td></tr>
+<td>com.was.qa.testcases.TransferFundsPageTest@68c4039c</td></tr>
 </table><p>
 </body>
 </html>

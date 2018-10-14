@@ -1,8 +1,8 @@
 package com.was.qa.testcases;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -10,7 +10,6 @@ import com.was.qa.base.TestBase;
 import com.was.qa.pages.HomePage;
 import com.was.qa.pages.LoginPage;
 import com.was.qa.pages.MainPage;
-import com.was.qa.pages.MyMoneyMapPage;
 import com.was.qa.pages.TransferFundsPage;
 
 public class TransferFundsPageTest extends TestBase {
@@ -18,7 +17,6 @@ public class TransferFundsPageTest extends TestBase {
 	MainPage mainPage;
 	HomePage homePage;
 	TransferFundsPage tnfrFundsPage;
-	
 	
 	public TransferFundsPageTest() {
 		super();
@@ -43,11 +41,11 @@ public class TransferFundsPageTest extends TestBase {
 	
 	@Test(priority=2)
 	public void validateTransferTest() {
-		tnfrFundsPage.enterDescription("hello world");
+		tnfrFundsPage.validateTransfer(2, 2, 1500, "test transfer");
 	}
 	
 	
-	@AfterTest
+	@AfterMethod
 	public void cleanUp() {
 		driver.quit();
 	}

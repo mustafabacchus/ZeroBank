@@ -2,21 +2,23 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="15578" started-at="2018-10-13T21:17:22Z" finished-at="2018-10-13T21:17:38Z">
+  <suite name="Default suite" duration-ms="14159" started-at="2018-10-14T00:16:02Z" finished-at="2018-10-14T00:16:16Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="15578" started-at="2018-10-13T21:17:22Z" finished-at="2018-10-13T21:17:38Z">
+    <test name="Default test" duration-ms="14159" started-at="2018-10-14T00:16:02Z" finished-at="2018-10-14T00:16:16Z">
       <class name="com.was.qa.testcases.TransferFundsPageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.was.qa.testcases.TransferFundsPageTest@3532ec19]" name="setUp" is-config="true" duration-ms="14725" started-at="2018-10-13T17:17:22Z" finished-at="2018-10-13T17:17:37Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.was.qa.testcases.TransferFundsPageTest@68c4039c]" name="setUp" is-config="true" duration-ms="13406" started-at="2018-10-13T20:16:02Z" finished-at="2018-10-13T20:16:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="validateTransferTest()[pri:0, instance:com.was.qa.testcases.TransferFundsPageTest@3532ec19]" name="validateTransferTest" duration-ms="15" started-at="2018-10-13T17:17:37Z" finished-at="2018-10-13T17:17:37Z">
+        <test-method status="FAIL" signature="validateTransferTest()[pri:0, instance:com.was.qa.testcases.TransferFundsPageTest@68c4039c]" name="validateTransferTest" duration-ms="9" started-at="2018-10-13T20:16:16Z" finished-at="2018-10-13T20:16:16Z">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
-	at com.was.qa.pages.TransferFundsPage.enterDescription(TransferFundsPage.java:67)
-	at com.was.qa.testcases.TransferFundsPageTest.validateTransferTest(TransferFundsPageTest.java:46)
+	at org.openqa.selenium.support.ui.Select.<init>(Select.java:44)
+	at com.was.qa.pages.TransferFundsPage.selectFromAccount(TransferFundsPage.java:49)
+	at com.was.qa.pages.TransferFundsPage.validateTransfer(TransferFundsPage.java:75)
+	at com.was.qa.testcases.TransferFundsPageTest.validateTransferTest(TransferFundsPageTest.java:44)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -47,7 +49,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateTransferTest -->
-        <test-method status="PASS" signature="cleanUp()[pri:0, instance:com.was.qa.testcases.TransferFundsPageTest@3532ec19]" name="cleanUp" is-config="true" duration-ms="833" started-at="2018-10-13T17:17:37Z" finished-at="2018-10-13T17:17:38Z">
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:com.was.qa.testcases.TransferFundsPageTest@68c4039c]" name="cleanUp" is-config="true" duration-ms="723" started-at="2018-10-13T20:16:16Z" finished-at="2018-10-13T20:16:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanUp -->

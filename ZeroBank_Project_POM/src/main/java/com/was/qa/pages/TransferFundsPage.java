@@ -17,7 +17,7 @@ public class TransferFundsPage extends TestBase {
 	
 	//from account drop down
 	@FindBy(id="tf_fromAccountId")
-	WebElement fromActDropDown;
+	public WebElement fromActDropDown;
 
 	//to account drop down
 	@FindBy(id="tf_toAccountId")
@@ -35,12 +35,8 @@ public class TransferFundsPage extends TestBase {
 	@FindBy(id="btn_submit")
 	WebElement continueBtn;
 	
-	/*
-	public TransferFundsPage() {
-		super();
-	}
-	*/
-	public void setUp(WebDriver driver) throws InterruptedException {
+
+	public void setUp() throws InterruptedException {
 		PageFactory.initElements(driver, this);		
 	}
 	
@@ -49,25 +45,29 @@ public class TransferFundsPage extends TestBase {
 	}
 	
 	public void selectFromAccount(int value) {
+		WebElement fromActDropDown = driver.findElement(By.id("tf_fromAccountId"));
 		new Select(fromActDropDown).selectByValue(Integer.toString(value));
 	}
 	
 	public void selectToAccount(int value) {
+		WebElement toActDropDown = driver.findElement(By.id("tf_toAccountId"));
 		new Select(toActDropDown).selectByValue(Integer.toString(value));
 	}
 
 	public void enterAmount(long value) {
+		WebElement amtField = driver.findElement(By.id("tf_amount"));
 		amtField.clear();
 		amtField.sendKeys(Long.toString(value));
 	}
 	
 	public void enterDescription(String value) {
-		//WebElement descriptField = driver.findElement(By.id("tf_description"));
+		WebElement descriptField = driver.findElement(By.id("tf_description"));
 		descriptField.clear();
 		descriptField.sendKeys(value);
 	}
 	
 	public void clickContinue() {
+		WebElement continueBtn = driver.findElement(By.id("btn_submit"));
 		continueBtn.click();
 	}
 	
