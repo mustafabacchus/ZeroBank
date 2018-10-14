@@ -4,11 +4,14 @@ import org.testng.Assert;
 
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
@@ -16,68 +19,6 @@ import org.testng.annotations.Test;
 import com.was.qa.base.TestBase;
 
 public class MyMoneyMapPage extends TestBase{
-	
-	//LOCATORS
-	
-	//Auto
-	@FindBy(xpath="//tspan[contains(text(),'Auto')][1]")
-	WebElement autoLabel;
-	@FindBy(xpath = "//tspan[contains(text(),'Auto')][2]")
-	WebElement autoToggle;
-	
-	//Charity
-	@FindBy(xpath="//tspan[contains(text(),'Charity')][1]")
-	WebElement charityLabel;
-	@FindBy(xpath = "//tspan[contains(text(),'Charity')][2]")
-	WebElement charityToggle;
-	
-	//Checks Written
-	@FindBy(xpath="//tspan[contains(text(),'Checks Written')][1]")
-	WebElement checksWrittenLabel;
-	@FindBy(xpath = "//tspan[contains(text(),'Checks Written')][2]")
-	WebElement checksWrittenToggle;
-	
-	//Retail
-	@FindBy(xpath="//tspan[contains(text(),'Retail')][1]")
-	WebElement retailLabel;
-	@FindBy(xpath = "//tspan[contains(text(),'Retail')][2]")
-	WebElement retailToggle;
-	
-	//Household
-	@FindBy(xpath="//tspan[contains(text(),'Household')][1]")
-	WebElement householdLabel;
-	@FindBy(xpath = "//tspan[contains(text(),'Household')][2]")
-	WebElement householdToggle;
-	
-	//Insurance
-	@FindBy(xpath="//tspan[contains(text(),'Insurance')][1]")
-	WebElement insuranceLabel;
-	@FindBy(xpath = "//tspan[contains(text(),'Insurance')][2]")
-	WebElement insuranceToggle;
-	
-	//Office Supply
-	@FindBy(xpath="//tspan[contains(text(),'')][1]")
-	WebElement officeSupplyLabel;
-	@FindBy(xpath = "//tspan[contains(text(),'')][2]")
-	WebElement officeSupplyToggle;
-	
-	//Restaurants
-	@FindBy(xpath="//tspan[contains(text(),'Restaurants')][1]")
-	WebElement restaurantsLabel;
-	@FindBy(xpath = "//tspan[contains(text(),'Restaurants')][2]")
-	WebElement restaurantsToggle;
-	
-	//Telecom
-	@FindBy(xpath="//tspan[contains(text(),'Telecom')][1]")
-	WebElement telecomLabel;
-	@FindBy(xpath = "//tspan[contains(text(),'Telecom')][2]")
-	WebElement telecomToggle;
-	
-	//Transportation
-//	@FindBy(xpath="//tspan[contains(text(),'Transportation')][1]")
-//	WebElement transportationLabel;
-//	@FindBy(xpath = "")
-//	WebElement transportationToggle;
 	
 	public MyMoneyMapPage() {
 		PageFactory.initElements(driver, this);		
@@ -104,7 +45,7 @@ public class MyMoneyMapPage extends TestBase{
 		for(int i=0; i<10; i++) {
 			WebElement slice = driver.findElement(By.id("ext-sprite-" + sliceId));
 			act.moveToElement(slice).build().perform();
-			Thread.sleep(100);
+//			Thread.sleep(100);
 			System.out.println(slice);
 			sliceId++;
 		}
@@ -193,11 +134,37 @@ public class MyMoneyMapPage extends TestBase{
 
 	public void pieChartVisibility() throws InterruptedException {
 		
-		//Returns PieChart Back to original state for further testing
-//		WebElement mapObject = driver.findElement(By.xpath("//*[name()='svg']/*[name()='rect']"));
-//		((JavascriptExecutor) driver).executeScript("arguments[0].click", mapObject);
-//		mapObject.click();
-//		System.out.println("Clicked the thing.");
+		reverseCategoryOrder();
+		
+		String[] category = {"Auto", "Charity", "Checks Written", "Household", "Insurance",
+							"Office Supply", "Restaurants", "Retail", "Telecom", "Transportation"}; 
+		List <WebElement> list = new ArrayList<WebElement>();
+		for(int i=0; i<category.length; i++) {
+			List <WebElement> toggle = driver.findElements(By.xpath("//*[contains(text(), '" + category[i] + "')]"));
+			
+			String temp = toggle.get(1).getText();
+			toggle.get(2).click();
+			
+			if(toggle.get(1).isDisplayed() == false) 
+				System.out.println(temp + " slice successfully dissapeared.");
+			else
+				System.out.println(toggle.get(1).getText() + " slice failed to meet expected result");
+			
+			Thread.sleep(100);
+		}
+		System.out.println("\n\n");
+		for(int i=0; i<category.length; i++) {
+			List <WebElement> toggle = driver.findElements(By.xpath("//*[contains(text(), '" + category[i] + "')]"));
+			
+			toggle.get(2).click();
+			
+			if(toggle.get(1).isDisplayed()) 
+				System.out.println(toggle.get(1).getText() + " slice successfully reapeared.");
+			else
+				System.out.println(toggle.get(1).getText() + " slice failed to meet expected result");
+			
+			Thread.sleep(100);
+		}
 	}
 	
 	public void reverseCategoryOrder() {
@@ -214,7 +181,7 @@ public class MyMoneyMapPage extends TestBase{
 		String[] outflow = findMoneyValues();
 		boolean flag = true;
 		
-		//Checks if outflow elements add up to outflow total
+		//Checks if out flow elements add up to out flow total
 		double outflowSum = 0;
 		for(int i=0; i<outflow.length; i++) 
 			outflowSum = outflowSum + Double.parseDouble(outflow[i]);

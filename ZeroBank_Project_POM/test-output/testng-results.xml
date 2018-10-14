@@ -1,21 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="36145" started-at="2018-10-13T02:07:52Z" finished-at="2018-10-13T02:08:29Z">
+  <suite name="Default suite" duration-ms="75293" started-at="2018-10-14T22:22:55Z" finished-at="2018-10-14T22:24:11Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="36145" started-at="2018-10-13T02:07:52Z" finished-at="2018-10-13T02:08:29Z">
+    <test name="Default test" duration-ms="75293" started-at="2018-10-14T22:22:55Z" finished-at="2018-10-14T22:24:11Z">
       <class name="com.was.qa.testcases.MyMoneyMapPageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.was.qa.testcases.MyMoneyMapPageTest@68c4039c]" name="setUp" is-config="true" duration-ms="14875" started-at="2018-10-12T22:07:52Z" finished-at="2018-10-12T22:08:07Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.was.qa.testcases.MyMoneyMapPageTest@ae45eb6]" name="setUp" is-config="true" duration-ms="14591" started-at="2018-10-14T18:22:55Z" finished-at="2018-10-14T18:23:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="test1()[pri:0, instance:com.was.qa.testcases.MyMoneyMapPageTest@68c4039c]" name="test1" duration-ms="20492" started-at="2018-10-12T22:08:07Z" finished-at="2018-10-12T22:08:28Z">
+        <test-method status="PASS" signature="test1()[pri:0, instance:com.was.qa.testcases.MyMoneyMapPageTest@ae45eb6]" name="test1" duration-ms="4077" started-at="2018-10-14T18:23:10Z" finished-at="2018-10-14T18:23:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test1 -->
-        <test-method status="PASS" signature="cleanUp()[pri:0, instance:com.was.qa.testcases.MyMoneyMapPageTest@68c4039c]" name="cleanUp" is-config="true" duration-ms="765" started-at="2018-10-12T22:08:28Z" finished-at="2018-10-12T22:08:29Z">
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:com.was.qa.testcases.MyMoneyMapPageTest@ae45eb6]" name="cleanUp" is-config="true" duration-ms="747" started-at="2018-10-14T18:23:14Z" finished-at="2018-10-14T18:23:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.was.qa.testcases.MyMoneyMapPageTest@ae45eb6]" name="setUp" is-config="true" duration-ms="14094" started-at="2018-10-14T18:23:15Z" finished-at="2018-10-14T18:23:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="test2()[pri:0, instance:com.was.qa.testcases.MyMoneyMapPageTest@ae45eb6]" name="test2" duration-ms="12809" started-at="2018-10-14T18:23:29Z" finished-at="2018-10-14T18:23:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:com.was.qa.testcases.MyMoneyMapPageTest@ae45eb6]" name="cleanUp" is-config="true" duration-ms="843" started-at="2018-10-14T18:23:42Z" finished-at="2018-10-14T18:23:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.was.qa.testcases.MyMoneyMapPageTest@ae45eb6]" name="setUp" is-config="true" duration-ms="15134" started-at="2018-10-14T18:23:43Z" finished-at="2018-10-14T18:23:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="test3()[pri:0, instance:com.was.qa.testcases.MyMoneyMapPageTest@ae45eb6]" name="test3" duration-ms="12168" started-at="2018-10-14T18:23:58Z" finished-at="2018-10-14T18:24:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test3 -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:com.was.qa.testcases.MyMoneyMapPageTest@ae45eb6]" name="cleanUp" is-config="true" duration-ms="809" started-at="2018-10-14T18:24:10Z" finished-at="2018-10-14T18:24:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanUp -->

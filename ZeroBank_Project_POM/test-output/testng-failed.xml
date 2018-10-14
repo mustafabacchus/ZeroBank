@@ -5,7 +5,7 @@
     <classes>
       <class name="com.was.qa.testcases.MyMoneyMapPageTest">
         <methods>
-          <include name="test1"/>
+          <include name="test2"/>
           <include name="setUp"/>
           <include name="cleanUp"/>
         </methods>

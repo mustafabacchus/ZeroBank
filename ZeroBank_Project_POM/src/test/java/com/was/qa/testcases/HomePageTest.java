@@ -42,33 +42,25 @@ public class HomePageTest extends TestBase {
 		homePage.clickTermsOfUse();
 	}
 	
+
+	
 	@Test(priority=3)
-	public void clearSearchBarByF5Test() throws InterruptedException {  //<<<< figure out how to sleep after text is cleared but it passes
-		homePage.enterTextInSearchBar("To be gone by pressing F5 key");
+	public void ctrlADeleteTest() throws InterruptedException {
+		homePage.enterTextInSearchBar("To be deleted by pressing Ctrl A");
 		Thread.sleep(3000);
-		WebElement srchBar= homePage.getSearchBar();
-		act.sendKeys(srchBar , Keys.F5);
-		driver.get(driver.getCurrentUrl());
-		Thread.sleep(6000);
-		String sbstr = srchBar.getText();
-		//search bar must contain no text after F5 is pressed
-		Assert.assertEquals(sbstr, "");
+		WebElement srchBar = homePage.getSearchBar();
+		act.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).perform();
+		Thread.sleep(3000);
+		Assert.assertEquals("",srchBar.getText());
+		
 	}
-//	
-//	@Test(priority=4)
-//	public void contextClickLeavePageTest() {		FINISH
-//		
-//	}
+
 	
-	
-	@Test(priority=5)
+	@Test(priority=4)
 	public void selectHelpTest() throws InterruptedException {
 		homePage.getSettingsDropDown().click();
 		Thread.sleep(3000);
 		homePage.getHelpLink().click();
-//		Robot r = new Robot();
-//		WebElement help=homePage.getHelpLink();
-//		act.moveToElement(help).contextClick().sendKeys(Keys.ARROW_DOWN).click().build().perform();
 		Thread.sleep(3000);
 		Assert.assertEquals(driver.getTitle(), "Zero - Help");
 	}
