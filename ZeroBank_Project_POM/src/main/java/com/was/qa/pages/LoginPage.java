@@ -43,7 +43,6 @@ public class LoginPage extends TestBase{
 		pwdBox.clear();
 		pwdBox.sendKeys(pwd);
 		signInBtn.click();
-		//user is navigated to home page after login
 		return new HomePage();
 	}
 	

@@ -1,16 +1,19 @@
 package com.was.qa.pages;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.InputEvent;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.was.qa.base.TestBase;
 
 public class HomePage extends TestBase{
-	//add some locators here!
 	
 	//download web inspect link
 	@FindBy(id="download_webinspect_link")
@@ -52,9 +55,17 @@ public class HomePage extends TestBase{
 	@FindBy(id="searchTerm")
 	WebElement searchBar;
 	
+	//log out link
+	@FindBy(id="logout_link")
+	WebElement logOutLink;
+	
 	//settings drop down
 	@FindBy(className = "dropdown-toggle")
 	WebElement settingsDropDown;
+	
+	//username drop down
+	@FindBy(xpath = "//*[@id=\"settingsBox\"]/ul/li[3]/a")
+	WebElement usernameDropDown;
 	
 	//help link
 	@FindBy(id="help_link")
@@ -65,13 +76,9 @@ public class HomePage extends TestBase{
 	WebElement zBLogoBtn;
 	
 	//displayed username
-	@FindBy(xpath="//*[contains(@class, 'dropdown-toggle')][1]")
+	@FindBy(xpath="//*[@id=\"settingsBox\"]/ul/li[3]/a")
 	WebElement userToggle;
-	
-	////*[@id="settingsBox"]/ul/li[3]/a/text()
-	
-	////*[contains(@class, 'dropdown-toggle')][2]
-		
+			
 	//constructor
 	public HomePage() {
 		//Initializing the Page Objects
@@ -135,26 +142,45 @@ public class HomePage extends TestBase{
 		return searchBar;
 	}
 	
-	public WebElement getSettingsDropDown() {
-		return settingsDropDown;
-	}
-	
-	public WebElement getHelpLink() {
-		return helpLink;
-	}
+
 	
 	public WebElement getZeroBankLogoBtn() {
 		return zBLogoBtn;
 	}
 	
-	public void dragAndDrop(WebElement source, WebElement target) {
-//		act.dragAndDrop(source, target).build().perform();
+	
+	public void logOut() throws InterruptedException {
+		usernameDropDown.click();
+		Thread.sleep(3000);
+		logOutLink.click();
+		Thread.sleep(3000);
+	}
+	
+	public void clickHelp() throws InterruptedException {
+		settingsDropDown.click();
+		Thread.sleep(3000);
+		helpLink.click();
+		Thread.sleep(3000);
+	}
+	
+	public void dragAndDrop(WebElement source, WebElement target) throws AWTException {
+		new Actions(driver).dragAndDrop(source, target).build().perform();
 //		act.clickAndHold(source).moveToElement(target).release().build().perform();
-		act.clickAndHold(source );
-		act.moveToElement(target );
-		act.release(source );
-		act.moveByOffset(0, 5);
-		act.build().perform();
+//		act.clickAndHold(source );
+//		act.moveToElement(target );
+//		act.release(source );
+//		act.moveByOffset(0, 5);
+//		act.build().perform();
+//	    Robot robot = new Robot ();
+//
+////	    robot.mouseMove(350, 226);
+//	    robot.mouseMove(source.getLocation().getX(), source.getLocation().getY());
+//	    robot.mousePress(InputEvent.BUTTON1_MASK);
+////	    robot.mouseMove(250, 350);
+//	    robot.mouseMove(target.getLocation().getX(), target.getLocation().getY());
+//	    robot.mouseRelease(InputEvent.BUTTON1_MASK);
+	    
+
 
 	}
 	

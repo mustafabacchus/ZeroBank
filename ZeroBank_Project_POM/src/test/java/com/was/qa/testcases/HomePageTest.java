@@ -1,5 +1,7 @@
 package com.was.qa.testcases;
 
+import java.awt.AWTException;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -28,7 +30,6 @@ public class HomePageTest extends TestBase {
 		mainPage = new MainPage();
 		loginPage = mainPage.navigateToLoginPage();
 		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-		//should land on home page at this point
 	}
 	
 	@Test(priority=1)
@@ -38,14 +39,13 @@ public class HomePageTest extends TestBase {
 	}
 	
 	@Test(priority=2)
-	public void contextClickEnglishTranslationTest() {
-		homePage.clickTermsOfUse();
+	public void contextClickTest() {
+		act.contextClick();
+		//?????????????????????????????????????????????????????????????????????????????????????????????????????????????
 	}
-	
-
-	
+		
 	@Test(priority=3)
-	public void ctrlADeleteTest() throws InterruptedException {
+	public void ctrlATest() throws InterruptedException {
 		homePage.enterTextInSearchBar("To be deleted by pressing Ctrl A");
 		Thread.sleep(3000);
 		WebElement srchBar = homePage.getSearchBar();
@@ -54,33 +54,35 @@ public class HomePageTest extends TestBase {
 		Assert.assertEquals("",srchBar.getText());
 		
 	}
-
 	
 	@Test(priority=4)
-	public void selectHelpTest() throws InterruptedException {
-		homePage.getSettingsDropDown().click();
-		Thread.sleep(3000);
-		homePage.getHelpLink().click();
-		Thread.sleep(3000);
+	public void selectHelpFromDropDownTest() throws InterruptedException {
+		homePage.clickHelp();
 		Assert.assertEquals(driver.getTitle(), "Zero - Help");
 	}
 
 	//FIX
 //	@Test(priority=6)
-//	public void dragLogoToSearchBarTest() {
+//	public void dragLogoToSearchBarTest() throws AWTException, InterruptedException {
 //		WebElement logo = homePage.getZeroBankLogoBtn();
 //		WebElement sBar = homePage.getSearchBar();
 //		homePage.dragAndDrop(logo, sBar);
 //		String sbText = sBar.getText();
+//		Thread.sleep(6000);
 //		Assert.assertEquals(sbText, "http://zero.webappsecurity.com/index.html");
 //	}
 	
-//FIX
-//	@Test(priority=7)
-//	public void validateUserTest() {
-//		String username = homePage.getUserName();
-//		Assert.assertEquals(username, prop.getProperty("username"));
-//	}
+	@Test(priority=7)
+	public void validateUserTest() {
+		String username = homePage.getUserName();
+		Assert.assertEquals(username, prop.getProperty("username"));
+	}
+	
+	@Test(priority=8)
+	public void logOutTest() throws InterruptedException {
+		homePage.logOut();
+		Assert.assertEquals(driver.getTitle(), "Zero - Personal Banking - Loans - Credit Cards");
+	}
 	
 	@AfterMethod
 	public void cleanUp() {
