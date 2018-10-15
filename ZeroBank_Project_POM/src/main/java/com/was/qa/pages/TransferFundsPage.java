@@ -17,7 +17,7 @@ public class TransferFundsPage extends TestBase {
 	
 	//from account drop down
 	@FindBy(id="tf_fromAccountId")
-	public WebElement fromActDropDown;
+	WebElement fromActDropDown;
 
 	//to account drop down
 	@FindBy(id="tf_toAccountId")
@@ -35,9 +35,12 @@ public class TransferFundsPage extends TestBase {
 	@FindBy(id="btn_submit")
 	WebElement continueBtn;
 	
+	//cancel button
+	@FindBy(id="btn_cancel")
+	WebElement cancelBtn;
 
-	public void setUp() throws InterruptedException {
-		PageFactory.initElements(driver, this);		
+	public TransferFundsPage() {
+		PageFactory.initElements(driver, this);	
 	}
 	
 	public String validateTransferFundsPage() {
@@ -45,39 +48,58 @@ public class TransferFundsPage extends TestBase {
 	}
 	
 	public void selectFromAccount(int value) {
-		WebElement fromActDropDown = driver.findElement(By.id("tf_fromAccountId"));
 		new Select(fromActDropDown).selectByValue(Integer.toString(value));
 	}
 	
 	public void selectToAccount(int value) {
-		WebElement toActDropDown = driver.findElement(By.id("tf_toAccountId"));
 		new Select(toActDropDown).selectByValue(Integer.toString(value));
+		
 	}
 
-	public void enterAmount(long value) {
-		WebElement amtField = driver.findElement(By.id("tf_amount"));
+	public void enterAmount(double value) {
 		amtField.clear();
-		amtField.sendKeys(Long.toString(value));
+		amtField.sendKeys(Double.toString(value));
 	}
 	
 	public void enterDescription(String value) {
-		WebElement descriptField = driver.findElement(By.id("tf_description"));
 		descriptField.clear();
 		descriptField.sendKeys(value);
 	}
 	
 	public void clickContinue() {
-		WebElement continueBtn = driver.findElement(By.id("btn_submit"));
 		continueBtn.click();
 	}
 	
-	public void validateTransfer(int from, int to, long amount, String description) {
+	public boolean validateTransfer(int from, int to, double transAmount, String description) {
 		selectFromAccount(from);
+		String fromSel = new Select(fromActDropDown).getFirstSelectedOption().getText();
+		// get from account type
+		String fromAcc = fromSel.substring(0, fromSel.indexOf('(')).replaceAll(" ", "");
+		//get from account amount
+		double fromAmt = Double.parseDouble(fromSel.substring(fromSel.indexOf('$') + 2, fromSel.indexOf(')')));
+		System.out.println(fromAcc + ": " + fromAmt);
+		
 		selectToAccount(to);
-		enterAmount(amount);
+		String toSel = new Select(toActDropDown).getFirstSelectedOption().getText();
+		//get to account type
+		String toAcc = toSel.substring(0, toSel.indexOf('(')).replaceAll(" ", "");
+		//get to account amount
+		double toAmt = Double.parseDouble(toSel.substring(toSel.indexOf('$')+  2, toSel.indexOf(')')));
+		System.out.println(toAcc + ": " + toAmt);
+		
+		enterAmount(transAmount);
 		enterDescription(description);
 		clickContinue();
-		//return false;
-	}
+		
+		if ((fromAcc.equals(toAcc)) && cancelBtn.isDisplayed()) { 
+			System.out.println("Can not make transfer from " + fromAcc + " to " + toAcc + "." ); 
+			return false;
+		}
+		if ((fromAmt <= transAmount) && cancelBtn.isDisplayed()) {
+			System.out.println("Insufficient funds.");
+			return false;
+		}
+		return true;
+	}  
 
 }

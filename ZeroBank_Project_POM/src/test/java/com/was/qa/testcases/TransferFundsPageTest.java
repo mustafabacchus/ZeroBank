@@ -31,17 +31,22 @@ public class TransferFundsPageTest extends TestBase {
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));//should land on home page at this point
 		tnfrFundsPage = homePage.clickTransferFundsTab();
 	}
-	/*
+	
 	@Test(priority=1)
 	public void transferFundsPageTitleTest() {
 		String title = tnfrFundsPage.validateTransferFundsPage();
 		Assert.assertEquals(title,"Zero - Transfer Funds");
 	}
-	*/
+	
 	
 	@Test(priority=2)
-	public void validateTransferTest() {
-		tnfrFundsPage.validateTransfer(2, 2, 1500, "test transfer");
+	public void insuffcientFundsTest() {
+		Assert.assertTrue(tnfrFundsPage.validateTransfer(1, 2, 1500.89, "test transfer"));
+	}
+	
+	@Test(priority=-1000)
+	public void accountTransferToSameAccountTest() {
+		Assert.assertTrue(tnfrFundsPage.validateTransfer(1, 1, 400, ""));
 	}
 	
 	

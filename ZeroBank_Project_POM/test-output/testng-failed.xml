@@ -5,7 +5,8 @@
     <classes>
       <class name="com.was.qa.testcases.TransferFundsPageTest">
         <methods>
-          <include name="validateTransferTest"/>
+          <include name="insuffcientFundsTest"/>
+          <include name="accountTransferToSameAccountTest"/>
           <include name="cleanUp"/>
           <include name="setUp"/>
         </methods>
