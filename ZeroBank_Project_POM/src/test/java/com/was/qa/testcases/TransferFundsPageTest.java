@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.was.qa.base.TestBase;
 import com.was.qa.pages.HomePage;
@@ -17,7 +18,7 @@ public class TransferFundsPageTest extends TestBase {
 	MainPage mainPage;
 	HomePage homePage;
 	TransferFundsPage tnfrFundsPage;
-	
+
 	public TransferFundsPageTest() {
 		super();
 	}
