@@ -28,7 +28,7 @@ public class TestBase {
 		//instantiate instance of Properties class
 		prop = new Properties();
 		try {
-			FileInputStream ip = new FileInputStream(System.getProperty("user.dir")+
+			FileInputStream ip = new FileInputStream(System.getProperty("user.dir") +
 					"\\src\\main\\java\\com\\was\\qa\\config\\config.properties");
 			//read property list from input stream (that contains config values??) 
 			//(Property class contains list of properties i.e. value from .properties file)

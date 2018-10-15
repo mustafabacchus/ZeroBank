@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
@@ -21,6 +22,32 @@
 	at java.lang.String.substring(Unknown Source)
 	at com.was.qa.pages.PayBillsPage.isValidConversion(PayBillsPage.java:75)
 	at com.was.qa.testcases.PayBillsPageTest.currencyConversionTest(PayBillsPageTest.java:43)
+=======
+<testng-results skipped="0" failed="2" total="3" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="57472" started-at="2018-10-15T22:25:57Z" finished-at="2018-10-15T22:26:54Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="57472" started-at="2018-10-15T22:25:57Z" finished-at="2018-10-15T22:26:54Z">
+      <class name="com.was.qa.testcases.TransferFundsPageTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.was.qa.testcases.TransferFundsPageTest@68c4039c]" name="setUp" is-config="true" duration-ms="18041" started-at="2018-10-15T18:25:57Z" finished-at="2018-10-15T18:26:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="FAIL" signature="accountTransferToSameAccountTest()[pri:0, instance:com.was.qa.testcases.TransferFundsPageTest@68c4039c]" name="accountTransferToSameAccountTest" duration-ms="3756" started-at="2018-10-15T18:26:15Z" finished-at="2018-10-15T18:26:19Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at com.was.qa.testcases.TransferFundsPageTest.accountTransferToSameAccountTest(TransferFundsPageTest.java:50)
+>>>>>>> 3776af68470631ef99bb24833f9dcf458a8932e4
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -47,6 +74,7 @@
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
+<<<<<<< HEAD
           </exception> <!-- java.lang.StringIndexOutOfBoundsException -->
           <reporter-output>
           </reporter-output>
@@ -56,6 +84,79 @@
           </reporter-output>
         </test-method> <!-- cleanUp -->
       </class> <!-- com.was.qa.testcases.PayBillsPageTest -->
+=======
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- accountTransferToSameAccountTest -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:com.was.qa.testcases.TransferFundsPageTest@68c4039c]" name="cleanUp" is-config="true" duration-ms="795" started-at="2018-10-15T18:26:19Z" finished-at="2018-10-15T18:26:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.was.qa.testcases.TransferFundsPageTest@68c4039c]" name="setUp" is-config="true" duration-ms="14039" started-at="2018-10-15T18:26:19Z" finished-at="2018-10-15T18:26:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="transferFundsPageTitleTest()[pri:0, instance:com.was.qa.testcases.TransferFundsPageTest@68c4039c]" name="transferFundsPageTitleTest" duration-ms="92" started-at="2018-10-15T18:26:33Z" finished-at="2018-10-15T18:26:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- transferFundsPageTitleTest -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:com.was.qa.testcases.TransferFundsPageTest@68c4039c]" name="cleanUp" is-config="true" duration-ms="797" started-at="2018-10-15T18:26:34Z" finished-at="2018-10-15T18:26:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.was.qa.testcases.TransferFundsPageTest@68c4039c]" name="setUp" is-config="true" duration-ms="13771" started-at="2018-10-15T18:26:34Z" finished-at="2018-10-15T18:26:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="FAIL" signature="insuffcientFundsTest()[pri:0, instance:com.was.qa.testcases.TransferFundsPageTest@68c4039c]" name="insuffcientFundsTest" duration-ms="5297" started-at="2018-10-15T18:26:48Z" finished-at="2018-10-15T18:26:53Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at com.was.qa.testcases.TransferFundsPageTest.insuffcientFundsTest(TransferFundsPageTest.java:45)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- insuffcientFundsTest -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:com.was.qa.testcases.TransferFundsPageTest@68c4039c]" name="cleanUp" is-config="true" duration-ms="844" started-at="2018-10-15T18:26:53Z" finished-at="2018-10-15T18:26:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- com.was.qa.testcases.TransferFundsPageTest -->
+>>>>>>> 3776af68470631ef99bb24833f9dcf458a8932e4
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

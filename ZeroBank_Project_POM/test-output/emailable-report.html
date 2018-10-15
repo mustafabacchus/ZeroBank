@@ -31,11 +31,16 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 <body>
 <table cellspacing="0" cellpadding="0" class="result">
 <tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
+<<<<<<< HEAD
 <tr><td style="text-align:left;padding-right:2em">Default test</td><td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">22.6 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+=======
+<tr><td style="text-align:left;padding-right:2em">Default test</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi_attn">2</td><td class="numi">57.5 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+>>>>>>> 3776af68470631ef99bb24833f9dcf458a8932e4
 </table>
 <table cellspacing="0" cellpadding="0" class="passed" id="summary">
 <tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
 <tr><th colspan="4">Default test &#8212; failed</th></tr>
+<<<<<<< HEAD
 <tr class="failedodd"><td rowspan="1">com.was.qa.testcases.PayBillsPageTest</td><td><a href="#m1"><b>currencyConversionTest</b>  </a></td><td class="numi">1</td><td>1539646889873</td><td class="numi">8304</td></tr>
 </table>
 <h1>Default test</h1>
@@ -47,5 +52,35 @@ java.lang.String.substring(Unknown Source)
 <br/>at com.was.qa.testcases.PayBillsPageTest.currencyConversionTest(PayBillsPageTest.java:43)
 <br/>25 lines not shown
 </div>
+=======
+<tr class="failedodd"><td rowspan="2">com.was.qa.testcases.TransferFundsPageTest</td><td><a href="#m1"><b>accountTransferToSameAccountTest</b>  </a></td><td class="numi">1</td><td>1539642375331</td><td class="numi">3756</td></tr><tr class="failedodd"><td><a href="#m2"><b>insuffcientFundsTest</b>  </a></td><td class="numi">1</td><td>1539642408608</td><td class="numi">5297</td></tr>
+<tr><th colspan="4">Default test &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="1">com.was.qa.testcases.TransferFundsPageTest</td><td><a href="#m3"><b>transferFundsPageTitleTest</b>  </a></td><td class="numi">1</td><td>1539642393947</td><td class="numi">92</td></tr>
+</table>
+<h1>Default test</h1>
+<h2 id="m1">com.was.qa.testcases.TransferFundsPageTest:insuffcientFundsTest</h2>
+<div style="padding-left:3em">
+<p>expected [true] but found [false]</p>
+org.testng.Assert.fail(Assert.java:94)
+<br/>at org.testng.Assert.failNotEquals(Assert.java:494)
+<br/>at org.testng.Assert.assertTrue(Assert.java:42)
+<br/>at org.testng.Assert.assertTrue(Assert.java:52)
+<br/>at com.was.qa.testcases.TransferFundsPageTest.insuffcientFundsTest(TransferFundsPageTest.java:45)
+<br/>25 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m2">com.was.qa.testcases.TransferFundsPageTest:accountTransferToSameAccountTest</h2>
+<div style="padding-left:3em">
+<p>expected [true] but found [false]</p>
+org.testng.Assert.fail(Assert.java:94)
+<br/>at org.testng.Assert.failNotEquals(Assert.java:494)
+<br/>at org.testng.Assert.assertTrue(Assert.java:42)
+<br/>at org.testng.Assert.assertTrue(Assert.java:52)
+<br/>at com.was.qa.testcases.TransferFundsPageTest.accountTransferToSameAccountTest(TransferFundsPageTest.java:50)
+<br/>25 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m3">com.was.qa.testcases.TransferFundsPageTest:transferFundsPageTitleTest</h2>
+>>>>>>> 3776af68470631ef99bb24833f9dcf458a8932e4
 <p class="totop"><a href="#summary">back to summary</a></p>
 </body></html>

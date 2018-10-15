@@ -3,6 +3,7 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
+<<<<<<< HEAD
       <class name="com.was.qa.testcases.PayBillsPageTest">
         <methods>
           <include name="currencyConversionTest"/>
@@ -10,6 +11,16 @@
           <include name="cleanUp"/>
         </methods>
       </class> <!-- com.was.qa.testcases.PayBillsPageTest -->
+=======
+      <class name="com.was.qa.testcases.TransferFundsPageTest">
+        <methods>
+          <include name="insuffcientFundsTest"/>
+          <include name="accountTransferToSameAccountTest"/>
+          <include name="cleanUp"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.was.qa.testcases.TransferFundsPageTest -->
+>>>>>>> 3776af68470631ef99bb24833f9dcf458a8932e4
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
