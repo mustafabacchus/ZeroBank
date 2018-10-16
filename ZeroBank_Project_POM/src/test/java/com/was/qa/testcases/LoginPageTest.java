@@ -37,12 +37,11 @@ public class LoginPageTest extends TestBase{
 	@Test(priority=2)
 	public void loginTest() throws InterruptedException {
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-		Thread.sleep(6000);//remove later
+		Thread.sleep(4000);
 	}
 	
 	@AfterMethod
 	public void cleanUp() {
-		driver.close();
 		driver.quit();
 	}
 	

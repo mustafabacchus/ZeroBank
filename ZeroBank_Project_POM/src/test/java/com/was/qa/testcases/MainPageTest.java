@@ -36,8 +36,7 @@ public class MainPageTest extends TestBase {
 	
 	@Test(priority=3)
 	public void navigateToLoginPageTest() throws InterruptedException {
-//		mainPage.navigateToLoginPage();
-		mainPage.clickSignIn();
+ 		mainPage.clickSignIn();
 		Thread.sleep(3000);
 		String pageTitle = driver.getTitle();
 		Assert.assertEquals(pageTitle, "Zero - Log in");

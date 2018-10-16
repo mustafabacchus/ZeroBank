@@ -13,7 +13,7 @@ public class MainPage extends TestBase {
 	WebElement loginLinkBtn;
 	
 	//search bar
-	@FindBy(id="searchTerm") //<-----probably dont need this
+	@FindBy(id="searchTerm")
 	WebElement searchBar;
 	
 	//logo as link
@@ -36,7 +36,6 @@ public class MainPage extends TestBase {
 	}
 	
 	public LoginPage navigateToLoginPage() throws InterruptedException {
-//		act.click(loginLinkBtn);
 		clickSignIn();
 		Thread.sleep(3000);
 		return new LoginPage();

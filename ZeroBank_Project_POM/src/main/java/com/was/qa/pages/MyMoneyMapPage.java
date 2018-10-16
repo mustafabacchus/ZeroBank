@@ -45,7 +45,6 @@ public class MyMoneyMapPage extends TestBase{
 		for(int i=0; i<10; i++) {
 			WebElement slice = driver.findElement(By.id("ext-sprite-" + sliceId));
 			act.moveToElement(slice).build().perform();
-//			Thread.sleep(100);
 			System.out.println(slice);
 			sliceId++;
 		}

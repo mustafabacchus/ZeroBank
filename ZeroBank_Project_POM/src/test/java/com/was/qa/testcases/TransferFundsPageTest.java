@@ -42,12 +42,12 @@ public class TransferFundsPageTest extends TestBase {
 	
 	@Test(priority=2)
 	public void insuffcientFundsTest() {
-		Assert.assertTrue(tnfrFundsPage.validateTransfer(1, 2, 1500.89, "test transfer"));
+		Assert.assertFalse(tnfrFundsPage.validateTransfer(1, 2, 1500.89, "test transfer"));
 	}
 	
 	@Test(priority=-1000)
 	public void accountTransferToSameAccountTest() {
-		Assert.assertTrue(tnfrFundsPage.validateTransfer(1, 1, 400, ""));
+		Assert.assertFalse(tnfrFundsPage.validateTransfer(1, 1, 400, ""));
 	}
 	
 	

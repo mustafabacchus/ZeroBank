@@ -106,12 +106,7 @@ public class HomePage extends TestBase{
 		pStmtLink.click();
 	}
 	
-	//-----------------------click on tab actions-----------------
-	public AccountActivityPage clickAccountActivityTab() {
-		accountActivityTab.click();
-		return new AccountActivityPage();
-	}
-	
+	//-----------------------click on tab actions-----------------	
 	public TransferFundsPage clickTransferFundsTab() {
 		transferFundsTab.click();
 		return new TransferFundsPage();
@@ -126,12 +121,7 @@ public class HomePage extends TestBase{
 		myMoneyMapTab.click();
 		return new MyMoneyMapPage();
 	}
-	
-	public OnlineStatementsPage clickOnlineStatementsTab() {
-		onlineStatementsTab.click();
-		return new OnlineStatementsPage();
-	}
-	
+		
 	//------------------------------------------------------------
 	public void enterTextInSearchBar(String str) {
 		searchBar.clear();
@@ -141,14 +131,11 @@ public class HomePage extends TestBase{
 	public WebElement getSearchBar() {
 		return searchBar;
 	}
-	
-
-	
+		
 	public WebElement getZeroBankLogoBtn() {
 		return zBLogoBtn;
 	}
-	
-	
+		
 	public void logOut() throws InterruptedException {
 		usernameDropDown.click();
 		Thread.sleep(3000);
@@ -163,31 +150,9 @@ public class HomePage extends TestBase{
 		Thread.sleep(3000);
 	}
 	
-	public void dragAndDrop(WebElement source, WebElement target) throws AWTException {
-		new Actions(driver).dragAndDrop(source, target).build().perform();
-//		act.clickAndHold(source).moveToElement(target).release().build().perform();
-//		act.clickAndHold(source );
-//		act.moveToElement(target );
-//		act.release(source );
-//		act.moveByOffset(0, 5);
-//		act.build().perform();
-//	    Robot robot = new Robot ();
-//
-////	    robot.mouseMove(350, 226);
-//	    robot.mouseMove(source.getLocation().getX(), source.getLocation().getY());
-//	    robot.mousePress(InputEvent.BUTTON1_MASK);
-////	    robot.mouseMove(250, 350);
-//	    robot.mouseMove(target.getLocation().getX(), target.getLocation().getY());
-//	    robot.mouseRelease(InputEvent.BUTTON1_MASK);
-	    
-
-
-	}
 	
 	public String getUserName() {
-//		String username = "";
 		return userToggle.getText();
-//		return username;
 	}
 
 }

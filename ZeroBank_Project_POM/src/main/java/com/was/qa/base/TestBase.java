@@ -14,24 +14,20 @@ import org.openqa.selenium.interactions.Actions;
 
 import com.was.qa.util.TestUtil;
 
-public class TestBase {
-	
+public class TestBase {	
 	public static WebDriver driver;
 	//Property class used to retrieve values from the config.properties file (configurable parameters of application)
 	public static Properties prop;
 	public static Actions act;
 	
 	//constructor
-	public TestBase() {
-
-		
+	public TestBase() {		
 		//instantiate instance of Properties class
 		prop = new Properties();
 		try {
 			FileInputStream ip = new FileInputStream(System.getProperty("user.dir") +
 					"\\src\\main\\java\\com\\was\\qa\\config\\config.properties");
-			//read property list from input stream (that contains config values??) 
-			//(Property class contains list of properties i.e. value from .properties file)
+			//read property list from input stream
 			prop.load(ip);
 		}catch(FileNotFoundException e) {
 			e.printStackTrace();
@@ -55,18 +51,13 @@ public class TestBase {
 		}
 		
 		//instantiate instance of Actions class
-		act = new Actions(driver);
-		
+		act = new Actions(driver);		
 		//open configured url		
 		driver.get(prop.getProperty("url"));
-
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		//??????????????????????????????????????????????????????????????????????
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
-		//??????????????????????????????????????????????????????????????????????
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
-
 	}
 	
 }

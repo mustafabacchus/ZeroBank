@@ -47,14 +47,8 @@ public class TransferFundsPage extends TestBase {
 		return driver.getTitle();
 	}
 	
-<<<<<<< HEAD
-	public boolean validateTransfer(Select d1, Select d2) {
-		
-		return false;//remove later
-=======
 	public void selectFromAccount(int value) {
 		new Select(fromActDropDown).selectByValue(Integer.toString(value));
->>>>>>> 3776af68470631ef99bb24833f9dcf458a8932e4
 	}
 	
 	public void selectToAccount(int value) {
